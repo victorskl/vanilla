@@ -52,7 +52,14 @@ public class CarController {
         return "home";
     }
 
-    @RequestMapping(value = {"/car", "/car/list"})
+    @RequestMapping("/car")
+    public String car(Model model) {
+        List<Car> carList = iCarService.findAll();
+        model.addAttribute("carList", carList);
+        return "car/carHome";
+    }
+
+    @RequestMapping("/car/list")
     public String carList(Model model) {
         List<Car> carList = iCarService.findAll();
         model.addAttribute("carList", carList);

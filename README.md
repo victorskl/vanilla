@@ -1,6 +1,7 @@
 # Vanilla Project
 
-Welcome to my vanilla project. Modules are vanilla in their own nature, simpleton. 
+Welcome to my vanilla project - a few quick start projects for exploring Java technology stack.
+Modules are vanilla in their own nature, simpleton. 
 But they could potentially be a foundation for a bigger project. 
 Read each module README for further details if any.
 
@@ -11,6 +12,12 @@ Victor
 
 * http://sankholin.com
 * https://github.com/victorskl
+
+## Quick Demo
+
+* http://cloud.sankholin.com/vanilla-one
+* http://cloud.sankholin.com/vanilla-two
+* ...
 
 ## Quick Start
     git clone https://github.com/victorskl/vanilla.git

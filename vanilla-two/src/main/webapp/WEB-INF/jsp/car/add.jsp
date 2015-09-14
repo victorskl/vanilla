@@ -2,6 +2,7 @@
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 
 <html>
+<title>Car Add</title>
 <body>
 
 <h1>Add a car</h1>
