@@ -1,0 +1,15 @@
+<h1>Velo View</h1>
+
+<h2>Car list</h2>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+    </tr>
+    #foreach ($car in $cars)
+        <tr>
+            <td>$car.name</td>
+            <td>$car.price</td>
+        </tr>
+    #end
+</table>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <context:component-scan base-package="com.sankholin.web"/>
+
+    <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <property name="resourceLoaderPath" value="/"/>
+    </bean>
+
+    <bean id="velocityViewResolver" class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+        <property name="order" value="1"/>
+        <property name="cache" value="true"/>
+        <property name="prefix" value="/WEB-INF/vm/views/"/>
+        <property name="suffix" value=".vm"/>
+        <property name="layoutUrl" value="/WEB-INF/vm/layout/page.vm"/>
+    </bean>
+
+    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value=""/>
+    </bean>
+
+    <bean id="freeMarkerViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="order" value="2"/>
+        <property name="cache" value="true"/>
+        <property name="prefix" value="/WEB-INF/ftl/views/"/>
+        <property name="suffix" value=".ftl"/>
+    </bean>
+
+    <!--
+        NOTE: you can't chain two UrlBasedViewResolver in the same servlet context.
+        If you want to try XsltViewResolver in this space1 context, make sure you
+        comment out InternalResourceViewResolver.
+
+        Another approach to have both view resolvers in parallel is to configure
+        a separate servlet context for XsltViewResolver. Check /space2/xslview.
+        But doing this way, you are in two different dispatcher servlet context, do note that!
+    -->
+<!--
+    <bean class="org.springframework.web.servlet.view.xslt.XsltViewResolver">
+        <property name="order" value="3"/>
+        <property name="prefix" value="/WEB-INF/xsl/"/>
+        <property name="suffix" value=".xsl"/>
+    </bean>
+-->
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="order" value="3"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <mvc:annotation-driven/>
+
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
+
+</beans>

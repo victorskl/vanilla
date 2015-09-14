@@ -1,0 +1,55 @@
+<jsp:root version="2.0" xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:t="http://tiles.apache.org/tags-tiles"
+        xmlns:jsp="http://java.sun.com/JSP/Page"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:s="http://www.springframework.org/tags">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+    <jsp:output omit-xml-declaration="true"/>
+    <jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat"/>
+
+    <html lang="en">
+
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <meta name="description" content="SanKhoLin.com Enterprise System"/>
+        <meta name="author" content="Victor San Kho Lin"/>
+
+        <title><c:out value="${title}"/></title>
+
+        <s:url value="/resources/images" var="images"/>
+        <s:url value="/resources/style" var="style"/>
+        <s:url value="/resources/js" var="js"/>
+        <s:url value="/resources/bootstrap" var="bs"/>
+
+        <link rel="icon" href="${images}/favicon.ico"/>
+
+        <link href="${bs}/css/bootstrap.min.css" rel="stylesheet"/>
+
+        <link href="${style}/dashboard.css" rel="stylesheet"/>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+    <t:insertAttribute name="header"/>
+
+    <t:insertAttribute name="body"/>
+
+    <script type="text/javascript" src="${js}/jquery-1.11.3.min.js"><!----></script>
+    <script type="text/javascript" src="${js}/holder.min.js"><!----></script>
+    <script type="text/javascript" src="${bs}/js/bootstrap.min.js"><!----></script>
+
+    </body>
+
+    </html>
+
+</jsp:root>
