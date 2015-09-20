@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title th:text="${title}">Offline - Thymeleaf</title>
+    </head>
+
+    <body>
+        <h1 th:text="${message}">Welcome to Offline Thymeleaf</h1>
+
+        <ul>
+            <li><a th:href="@{/space1/hi}" href="http://google.com">hi</a></li>
+        </ul>
+
+        <br/>
+        <br/>
+        <hr/>
+
+        <fieldset>
+            <legend>debug</legend>
+            <p style="font-size: small;">
+                This test the very basic concept of Thymeleaf - <strong>natural templating</strong>.<br/>
+                Try to open this html file directly in browser.<br/>
+                Then run in your servlet container to see what is the difference.
+            </p>
+        </fieldset>
+    </body>
+
+</html>

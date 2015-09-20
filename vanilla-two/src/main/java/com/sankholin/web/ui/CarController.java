@@ -106,6 +106,12 @@ public class CarController {
         return "carfm";
     }
 
+    @RequestMapping(value = "/fmlayout", method = RequestMethod.GET)
+    public String fmlayout(ModelMap model) {
+        model.addAttribute("message", "Knock, knock, anyone there!");
+        return "fmlayout";
+    }
+
     //space2
 
     @RequestMapping("/xslview")
@@ -136,7 +142,7 @@ public class CarController {
 
     //space3
 
-    @RequestMapping("cover")
+    @RequestMapping("/cover")
     public String cover(ModelMap model) {
         model.addAttribute("title", "Cover Page - Bootstrap");
         return "cover";
@@ -153,4 +159,33 @@ public class CarController {
         model.addAttribute("title", "Dashboard - Bootstrap");
         return "admin/dashboard";
     }
+
+    //space4
+
+    @RequestMapping("/thyme")
+    public String thyme(ModelMap model) {
+        model.addAttribute("title", "Online - Thymeleaf");
+        model.addAttribute("message", "Welcome to Thymeleaf");
+        return "thyme";
+    }
+
+    @RequestMapping("/blog")
+    public String blog(ModelMap model) {
+        model.addAttribute("title", "Blog Home");
+        return "blog";
+    }
+
+    @RequestMapping("/thycars")
+    public String thycars(ModelMap model) {
+        model.addAttribute("title", "ThyCars");
+        return "thycars";
+    }
+
+    //common model attribute
+
+    @ModelAttribute("carList")
+    private List<Car> getCarList() {
+        return iCarService.findAll();
+    }
+
 }

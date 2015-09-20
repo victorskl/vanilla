@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:include="_page :: bootstrap_head">
+    <!-- include bootstrap head -->
+</head>
+
+<body>
+
+<div class="container">
+
+    <div th:if="${#lists.isEmpty(carList)}">
+        Table is empty.
+    </div>
+
+    <div th:if="${not #lists.isEmpty(carList)}">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Car Name</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="car : ${carList}">
+                <td th:text="${car.name}">Ferrari</td>
+                <td th:text="${car.price}">$1</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>
