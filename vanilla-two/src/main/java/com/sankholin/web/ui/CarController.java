@@ -20,7 +20,6 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -39,12 +38,6 @@ public class CarController {
     private ICarService iCarService;
 
     //space1
-
-    @RequestMapping("/hi")
-    @ResponseBody
-    public String hi() {
-        return "Hi, world.";
-    }
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String home(Model model) {
@@ -89,7 +82,7 @@ public class CarController {
         }
 
         iCarService.add(car);
-        return "redirect:/car/list";
+        return "redirect:/space1/car/list";
     }
 
     @RequestMapping(value = "/carvelo", method = RequestMethod.GET)

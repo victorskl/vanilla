@@ -1,5 +1,5 @@
 # Purpose
-Explore Spring MVC with different view technology stack 
+Explore Spring MVC with different view technology stack including RESTful web service
 
 ## Template Engines
 
@@ -19,5 +19,13 @@ Explore Spring MVC with different view technology stack
 
 * Layout Capability
 * Form Binding
-* Validation
+* Bean Validation
 * i18n
+
+## RESTful
+
+* Jackson JSON
+
+## Demo
+
+* http://cloud.sankholin.com/vanilla-two

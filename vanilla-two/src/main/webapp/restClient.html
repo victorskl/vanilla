@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <meta name="description" content="SanKhoLin.com Enterprise System"/>
+    <meta name="author" content="Victor San Kho Lin"/>
+    <link rel="icon" href="resources/images/favicon.ico"/>
+
+    <title>JQuery REST Client</title>
+
+    <script src="resources/js/jquery-1.11.3.min.js"></script>
+    <script src="resources/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css"/>
+
+    <script>
+        $(document).ready(function () {
+            $('#getCars').click(function () {
+                $('#getCars').button('loading');
+                $.ajax({
+                    url: 'space1/rest/getCars',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data, status, xhr) {
+                        console.log(data);
+                        $('#carDataTable').css('display', 'inline').find('> tbody:last').children().remove();
+                        drawTable(data);
+                        $('#messageBox').css('display', 'inline');
+                        $('#getCars').button('reset');
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(xhr.status);
+                        console.log(status);
+                        console.log(error);
+                    }
+                });
+            });
+
+            function drawTable(data) {
+                for (var i = 0; i < data.length; i++) {
+                    drawRow(data[i]);
+                }
+            }
+
+            function drawRow(rowData) {
+                var row = $("<tr />")
+                $("#carDataTable").append(row);
+                row.append($("<td>" + rowData.name + "</td>"));
+                row.append($("<td>" + rowData.price + "</td>"));
+            }
+        });
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <div class="page-header">
+        <h1>JQuery REST Client</h1>
+    </div>
+    <p class="lead">Clicking button below will perform Ajax call to <a href="space1/rest/getCars">getCars REST endpoint</a>.</p>
+
+    <div class="btn-group btn-group-lg" role="group" aria-label="...">
+        <button id="getCars" type="button" class="btn btn-primary" data-loading-text="Loading...">Get Cars</button>
+    </div>
+
+    <table id="carDataTable" style="display: none" class="table table-striped">
+        <thead>
+        <th>Name</th>
+        <th>Price</th>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+</body>
+</html>
