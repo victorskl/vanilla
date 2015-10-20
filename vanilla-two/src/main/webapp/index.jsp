@@ -23,9 +23,9 @@
         <h1>Good day...</h1>
     </div>
 
-    <p class="lead">Welcome to vanilla <b>TWO</b></p>
-    <pre>git clone https://github.com/victorskl/vanilla</pre>
-
+    <p class="lead">Welcome to Vanilla <a style="font-weight: bold" href="https://github.com/victorskl/vanilla/tree/master/vanilla-two">TWO</a></p>
+    <pre>git clone https://github.com/victorskl/vanilla.git</pre>
+    <iframe src="https://ghbtns.com/github-btn.html?user=victorskl&amp;type=follow" frameborder="0" scrolling="no" width="170px" height="20px"></iframe>
     <hr/>
 
     <h2>RESTful</h2>

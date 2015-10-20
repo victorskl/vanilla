@@ -45,7 +45,7 @@
             }
 
             function drawRow(rowData) {
-                var row = $("<tr />")
+                var row = $("<tr />");
                 $("#carDataTable").append(row);
                 row.append($("<td>" + rowData.name + "</td>"));
                 row.append($("<td>" + rowData.price + "</td>"));
@@ -69,8 +69,10 @@
 
     <table id="carDataTable" style="display: none" class="table table-striped">
         <thead>
-        <th>Name</th>
-        <th>Price</th>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
         </thead>
         <tbody></tbody>
     </table>

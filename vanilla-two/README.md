@@ -1,5 +1,5 @@
 # Purpose
-Explore Spring MVC with different view technology stack including RESTful web service
+Explore Spring web MVC with different view technology stack including RESTful web service.
 
 ## Template Engines
 
