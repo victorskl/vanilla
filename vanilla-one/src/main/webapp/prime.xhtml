@@ -1,34 +1,57 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
-        xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core"
-        xmlns:p="http://primefaces.org/ui" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
-<f:view>
-    <h:head>
-        <title>PrimeFaces Test</title>
-    </h:head>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+    template="WEB-INF/layout/page.xhtml">
 
-    <h:body>
+    <ui:define name="main">
 
-        <h:form>
+        <p:growl id="growl" showDetail="true" sticky="true"/>
 
-            <p:growl id="growl" showDetail="true" sticky="true"/>
+        <h:panelGrid columns="1" cellpadding="5">
+            <h:form>
+                <p:commandButton value="Add" type="button" onclick="PF('dlgAddPrime').show();"/>
+            </h:form>
 
-            <h2>
-                Pass through attribute placeholder only gets rendered if the runtime is JSF 2.2!
-            </h2>
+            <p:dataTable id="tblPrime" var="prime" value="#{primeView.primes}">
+                <p:column headerText="Id">
+                    <h:outputText value="#{prime.id}"/>
+                </p:column>
 
-            <p:inputText id="message" value="#{primeView.message}" pt:placeholder="Watermark here" required="true"/>
+                <p:column headerText="Message">
+                    <h:outputText value="#{prime.message}"/>
+                </p:column>
 
-            <br/>
+                <p:column headerText="Content">
+                    <h:outputText value="#{prime.content}" escape="false"/>
+                </p:column>
+            </p:dataTable>
 
-            <p:editor id="content" value="#{primeView.content}" required="true"/>
+        </h:panelGrid>
 
-            <br/>
+        <p:dialog appendTo="@(body)" header="Add New" modal="true" widgetVar="dlgAddPrime" closeOnEscape="true" closable="true" resizable="false">
+            <h:form>
+                <h:panelGrid>
+                    <p:inputText id="message" value="#{primeView.prime.message}" pt:placeholder="short message..." required="true">
+                        <f:validateLength maximum="20"/>
+                    </p:inputText>
 
-            <p:commandButton value="Submit" action="#{primeView.process}" update="growl"/>
+                    <p:editor id="content" value="#{primeView.prime.content}" required="true" width="600"
+                        controls="bold italic underline strikethrough font size style color highlight bullets numbering source">
+                        <f:validateLength maximum="200"/>
+                    </p:editor>
 
-        </h:form>
-    </h:body>
-</f:view>
-</html>
+                    <f:facet name="footer">
+                        <p:commandButton value="Save" action="#{primeView.process}" update="growl, tblPrime, message, content" oncomplete="PF('dlgAddPrime').hide();">
+                            <p:resetInput target="message, content"/>
+                        </p:commandButton>
+                    </f:facet>
+                </h:panelGrid>
+            </h:form>
+        </p:dialog>
+
+    </ui:define>
+
+</ui:composition>

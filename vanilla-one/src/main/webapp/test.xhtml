@@ -4,11 +4,16 @@
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
     <h:head>
-        <title>Test CDI View</title>
+        <title>JSF and CDI</title>
     </h:head>
 
     <h:body>
-        <h2>In this example, JSF backing bean is managed by JavaEE CDI</h2>
+        <h2>JSF and CDI</h2>
+
+        <p>
+            In this example, JSF backing bean <code>TestView</code> is managed by JavaEE CDI using annotation <code>@Named</code>
+            and putting it in CDI request context scope <code>@RequestScoped</code>.
+        </p>
 
         <h:panelGrid columns="2">
             <h:column>

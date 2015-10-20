@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>
+    <!-- Enable Weld CDI, also requires WEB-INF/web.xml resource-env-ref BeanManager entry -->
+    <!-- https://docs.jboss.org/weld/reference/latest/en-US/html/environments.html#_tomcat -->
     <Resource name="BeanManager"
         auth="Container"
         type="javax.enterprise.inject.spi.BeanManager"

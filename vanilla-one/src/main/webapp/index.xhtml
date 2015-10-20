@@ -1,28 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
-        xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
     <h:head>
         <title>Welcome to vanilla-one</title>
     </h:head>
 
-    <h:body>
+    <h:body style="font-family: 'Segoe UI', Verdana, Arial, sans-serif">
+        <div style="margin: 20px 20%">
+            <h1>Good day...</h1>
 
-        <h1>Good day...</h1>
-        <p>Welcome to vanilla <b>ONE</b></p>
-        <pre>git clone https://github.com/victorskl/vanilla</pre>
+            <p>Welcome to Vanilla <a style="font-weight: bold" href="https://github.com/victorskl/vanilla/tree/master/vanilla-one">ONE</a></p>
+            <pre>git clone https://github.com/victorskl/vanilla.git</pre>
 
-        <hr/>
+            <iframe src="https://ghbtns.com/github-btn.html?user=victorskl&amp;type=follow" frameborder="0" scrolling="no" width="170px" height="20px"></iframe>
 
-        <h:outputLink value="testcdi" title="TestServlet call to CDI">TestServlet call to CDI</h:outputLink>
-        <br/>
-        <h:outputLink value="test.xhtml" title="TestView JSF and CDI">TestView JSF and CDI</h:outputLink>
-        <br/>
-        <h:outputLink value="managed.xhtml" title="Test JSF ManagedBean View">Test JSF ManagedBean View</h:outputLink>
-        <br/>
-        <h:outputLink value="prime.xhtml">Testing PrimeFaces</h:outputLink>
+            <hr/>
 
+            <h2>Testing Contexts and Dependency Injection (CDI)</h2>
+
+            <ul>
+                <li><h:outputLink value="testcdi">Servlet and CDI</h:outputLink></li>
+                <li><h:outputLink value="test.xhtml">JSF and CDI</h:outputLink></li>
+                <li><h:outputLink value="managed.xhtml">Dependency Injection (DI) in JSF 2.0</h:outputLink></li>
+            </ul>
+
+            <hr/>
+
+            <h2>CDI Use Cases</h2>
+
+            <ul>
+                <li><h:outputLink value="prime.xhtml">PrimeFaces with Layout, Dialog and Bootstrap theme</h:outputLink>
+                </li>
+                <li><h:outputLink value="restClient.html">restClient.html</h:outputLink></li>
+            </ul>
+        </div>
     </h:body>
 </f:view>
 </html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <meta name="description" content="SanKhoLin.com Prime Enterprise Data Entry System"/>
+    <meta name="author" content="Victor San Kho Lin"/>
+
+    <title>JavaScript XHR AJAX REST Client</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Verdana, Arial, sans-serif;
+        }
+
+        cite {
+            font-weight: bold;
+        }
+
+        #container {
+            margin: 50px 20%;
+            /*border: dotted;*/
+        }
+
+        .loading {
+            position: absolute;
+            /*top: 10%;*/
+            right: 20%;
+            background-color: red;
+            font-size: 13px;
+            color: white;
+            margin: 5px;
+            padding: 3px;
+            opacity: .65;
+            z-index: -1;
+            overflow: hidden;
+        }
+    </style>
+
+    <script>
+        var ajax = function(url, successHandler, errorHandler) {
+            var xhr = new XMLHttpRequest();
+            url = url+'?t='+new Date().getTime(); //IE ajax no cache
+            xhr.open('GET', url, true);
+            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+            xhr.onreadystatechange = function() {
+                var status;
+                var data;
+                if (xhr.readyState == 4) {
+                    status = xhr.status;
+                    if (status == 200) {
+                        //console.log(xhr.responseText);
+                        //console.log(xhr.responseXML);
+                        data = xhr.responseXML;
+                        successHandler && successHandler(data);
+                    } else {
+                        errorHandler && errorHandler(status);
+                    }
+                }
+            };
+            xhr.send();
+        };
+
+        function getPrimes() {
+            var spinner = document.getElementById('spinner');
+            spinner.style.display = 'block';
+            var primeDataTable = document.getElementById('primeDataTable');
+            var tbody = document.createElement('tbody');
+            ajax('rest/prime/getPrimes',
+                    function(xmlData) {
+                        var primes = xmlData.getElementsByTagName('prime');
+                        //console.log(primes.length);
+                        for (var i = 0; i < primes.length; i++) {
+                            var row = document.createElement('tr');
+
+                            var td = document.createElement('td');
+                            td.appendChild(document.createTextNode(primes[i].getElementsByTagName('id')[0].childNodes[0].nodeValue));
+                            row.appendChild(td);
+
+                            td = document.createElement('td');
+                            td.appendChild(document.createTextNode(primes[i].getElementsByTagName('message')[0].childNodes[0].nodeValue));
+                            row.appendChild(td);
+
+                            td = document.createElement('td');
+                            td.innerHTML = primes[i].getElementsByTagName('content')[0].childNodes[0].nodeValue;
+                            row.appendChild(td);
+
+                            tbody.appendChild(row);
+                        }
+                        primeDataTable.replaceChild(tbody, primeDataTable.getElementsByTagName('tbody')[0]);
+                        spinner.style.display = 'none';
+                        primeDataTable.style.display = 'table';
+                    },
+                    function(status) {
+                        console.log(status);
+                    }
+            );
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="spinner" class="loading" style="display: none">Loading...</div>
+
+        <h2>JavaScript XHR AJAX REST Client</h2>
+        <p>
+            Welcome to <cite>good old</cite>, <cite>classic</cite>, <cite>pure</cite> JavaScript XHR AJAX REST client.
+            It also processes the result XML DOM to HTML DOM.
+        </p>
+
+        <button onclick="getPrimes()">Get Primes</button>
+
+        <div style="margin-top: 10px; margin-bottom: 10px" id="primeDataTableHolder">
+            <table id="primeDataTable" border="1" style="width: 100%; display: none">
+                <thead>
+                <tr bgcolor="#9acd32">
+                    <th>Id</th>
+                    <th>Message</th>
+                    <th>Content</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div style="margin-top: 50px; font-size: small">
+            <a href="prime.xhtml">Add Prime</a> | <a href="index.xhtml">Go Home</a>
+        </div>
+
+        <fieldset style="margin-top: 20px">
+            <legend>cURL Debug</legend>
+            <p>You may try these curl rest calls from console.</p>
+            <code>curl -i -sS "http://localhost:8080/vanilla-one/rest/prime/simple"</code>
+            <br/>
+            <code>curl -i -sS "http://localhost:8080/vanilla-one/rest/prime/getPrimes"</code>
+            <br/>
+            <code>curl -i -sS -H "Accept: application/xml" "http://localhost:8080/vanilla-one/rest/prime/getPrimes"</code>
+            <br/>
+            <code>curl -i -sS -H "Accept: application/json" "http://localhost:8080/vanilla-one/rest/prime/getPrimes"</code>
+        </fieldset>
+    </div>
+</body>
+</html>

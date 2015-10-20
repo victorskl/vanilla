@@ -1,12 +1,12 @@
 package com.sankholin.views;
 
+import com.sankholin.service.ITestService;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-
-import com.sankholin.service.ITestService;
 
 @Named
 @RequestScoped
@@ -19,7 +19,7 @@ public class TestView {
 
     @PostConstruct
     public void init() {
-        message = "Hello from CDI discovered JSF backing bean @Named! " + testService.add(2, 3);
+        message = "Hello from CDI discovered JSF backing bean! Calling injected testService: " + testService.add(2, 3);
     }
 
     @PreDestroy

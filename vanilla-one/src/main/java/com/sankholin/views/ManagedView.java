@@ -1,13 +1,13 @@
 package com.sankholin.views;
 
+import com.sankholin.service.IManagedTestService;
+import com.sankholin.service.ITestService;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.inject.Inject;
-
-import com.sankholin.service.IManagedTestService;
-import com.sankholin.service.ITestService;
 
 @ManagedBean
 public class ManagedView {
@@ -19,7 +19,7 @@ public class ManagedView {
 
     @PostConstruct
     public void init() {
-        message = "Hello JSF Managed backing bean @ManagedBean! -> " + managedTestService.multiply(3, 3);
+        message = "Calling JSF @ManagedProperty managedTestService -> " + managedTestService.multiply(3, 3);
     }
 
     @PreDestroy
@@ -49,6 +49,6 @@ public class ManagedView {
     private ITestService testService;
 
     public void callTestService() {
-        message = " iTestService call: " + testService.add(2, 3); // will throw java.lang.NullPointerException
+        message = "Calling testService: " + testService.add(2, 3); // will throw java.lang.NullPointerException
     }
 }

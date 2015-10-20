@@ -4,11 +4,18 @@
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
     <h:head>
-        <title>Test JSF ManagedBean View</title>
+        <title>Dependency Injection (DI) in JSF 2.0</title>
     </h:head>
 
     <h:body>
-        <h2>In this example, JSF backing bean is managed by ManagedBean.</h2>
+        <h2>Dependency Injection (DI) in JSF 2.0</h2>
+
+        <ul>
+            <li>In JSF 2.0, without depending extra DI middleware (Spring, CDI, Guice, ...), <code>@ManagedProperty</code> annotation can be used as a dependency injection (DI).</li>
+            <li>In this example, Service layer <code>ManagedTestService</code> is managed by JSF <code>@ManagedBean</code>.</li>
+            <li>And <code>ManagedTestService</code> is injected into <code>ManagedView</code> backing bean using <code>@ManagedProperty</code>.</li>
+            <li><code>@ManagedProperty</code> is a setter injection and required setter accessor on a calling bean.</li>
+        </ul>
 
         <h:panelGrid columns="2">
             <h:column>
@@ -23,10 +30,11 @@
 
         <h:form>
             <h:messages id="msg"/>
-            <h:outputText style="font-weight: bold"
-                    value="WARNING! Calling this will throw NullPointerError. Because this backing bean is not in CDI context."/>
-            <br/>
-            <h:commandButton value="Call CDI TestService" action="#{managedView.callTestService}" update="msg"/>
+            <p>
+                <span style="font-weight: bold; color: red"> WARNING!</span>
+                Calling this will throw <code>java.lang.NullPointerException</code>. Because this <code>ManagedView</code> backing bean is not in CDI context.
+            </p>
+            <h:commandButton value="Calling CDI TestService" action="#{managedView.callTestService}" update="msg"/>
         </h:form>
 
     </h:body>
