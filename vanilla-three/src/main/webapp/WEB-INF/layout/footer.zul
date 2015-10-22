@@ -1,0 +1,9 @@
+<div hflex="1" vflex="1" sclass="footer">
+    <vbox hflex="1" vflex="1" align="center">
+        <div>
+            V3 Enterprise Member Registration System -
+            <a href="http://www.sankholin.com">SKL Software Ltd</a>
+        </div>
+        <span>Powered by ZK ${desktop.webApp.version}, Spring Framework, et al</span>
+    </vbox>
+</div>

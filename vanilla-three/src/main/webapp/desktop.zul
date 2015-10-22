@@ -1,0 +1,74 @@
+<?page title="ZK Single Page MVVM Application" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/WEB-INF/layout/single.zul"?>
+<zk>
+
+    <div self="@define(content)" apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('vm') @init('com.sankholin.vanilla.three.ui.MemberDesktopViewModel')">
+
+        <window>
+            <vbox vflex="1" hflex="1">
+                <hbox vflex="1" hflex="1">
+                    <button href="/">Home</button>
+                    <button onClick="winReg.doModal();">Add</button>
+                    <hbox hflex="1" vflex="1" pack="end" align="center">
+                        <label value="ZK - Single Page, MVVM Application"/>
+                    </hbox>
+                </hbox>
+
+                <listbox model="@bind(vm.memberList)" emptyMessage="No member found in the result">
+                    <listhead>
+                        <listheader label="ID"/>
+                        <listheader label="Name"/>
+                        <listheader label="Gender"/>
+                        <listheader label="DOB"/>
+                    </listhead>
+                    <template name="model">
+                        <listitem>
+                            <listcell label="@bind(each.id)"/>
+                            <listcell label="@bind(each.name)"/>
+                            <listcell label="@bind(each.gender)"/>
+                            <listcell label="@bind(each.dob)"/>
+                        </listitem>
+                    </template>
+                </listbox>
+            </vbox>
+        </window>
+
+        <window id="winReg" title="New Registration" visible="@load(vm.winRegClose)" mode="modal">
+            <grid width="400px">
+                <columns visible="false">
+                    <column/>
+                    <column/>
+                </columns>
+                <auxhead>
+                    <auxheader colspan="2" label="Registration Form" style="font-size:16px"/>
+                </auxhead>
+                <rows>
+                    <row>
+                        Name
+                        <textbox hflex="1" value="@bind(vm.member.name)" constraint="no empty"/>
+                    </row>
+                    <row>
+                        Gender:
+                        <radiogroup selectedItem="@bind(vm.selectedGender)">
+                            <radio label="Male" value="male" iconSclass="z-icon-male"/>
+                            <radio label="Female" value="female" iconSclass="z-icon-female"/>
+                        </radiogroup>
+                    </row>
+                    <row>
+                        Birthday
+                        <datebox hflex="1" value="@bind(vm.member.dob)"
+                                 constraint="no empty, no today, no future"/>
+                    </row>
+                    <row spans="2" align="right">
+                        <hlayout>
+                            <button label="Cancel" onClick="winReg.setVisible(false);"/>
+                            <button label="Submit" onClick="@command('cmdSubmit')"/>
+                        </hlayout>
+                    </row>
+                </rows>
+            </grid>
+        </window>
+
+    </div>
+</zk>

@@ -1,0 +1,19 @@
+<zk>
+    <borderlayout hflex="1" vflex="1">
+
+        <north height="100px" border="none">
+            <include src="/WEB-INF/layout/header.zul"/>
+        </north>
+
+        <west width="260px" border="none" collapsible="true" splittable="true" minsize="300">
+            <include src="/WEB-INF/layout/sidebar.zul"/>
+        </west>
+
+        <center id="mainContent" autoscroll="true" self="@insert(content)"/>
+
+        <south height="50px" border="none">
+            <include src="/WEB-INF/layout/footer.zul"/>
+        </south>
+
+    </borderlayout>
+</zk>

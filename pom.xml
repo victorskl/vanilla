@@ -13,6 +13,7 @@
         <module>vanilla-pattern</module>
         <module>vanilla-one</module>
         <module>vanilla-two</module>
+        <module>vanilla-three</module>
     </modules>
 
 </project>

@@ -17,6 +17,7 @@ Victor
 
 * http://cloud.sankholin.com/vanilla-one
 * http://cloud.sankholin.com/vanilla-two
+* http://cloud.sankholin.com/vanilla-three
 * ...
 
 ## Quick Start

@@ -1,0 +1,12 @@
+<div hflex="1" vflex="1">
+    <hbox hflex="1" vflex="1" align="center">
+        <div>
+            <label value="V3" style="font-size: 2em; font-weight: bold; margin-left: 35px; margin-right: 10px;"/>
+            <label value="Enterprise Member Registration System" style="font-size: 1.2em;"/>
+        </div>
+        <hbox hflex="1" vflex="1" pack="end" align="center">
+            <label value="Welcome Victor,"/>
+            <toolbarbutton label="Logout" style="margin-right: 20px;"/>
+        </hbox>
+    </hbox>
+</div>

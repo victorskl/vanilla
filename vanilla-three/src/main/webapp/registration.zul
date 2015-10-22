@@ -1,0 +1,40 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/WEB-INF/layout/page.zul"?>
+<zk>
+    <grid self="@define(content)" apply="com.sankholin.vanilla.three.ui.RegistrationController" width="400px">
+        <columns visible="false">
+            <column/>
+            <column/>
+        </columns>
+        <auxhead>
+            <auxheader colspan="2" label="Registration Form" style="font-size:16px"/>
+        </auxhead>
+        <rows>
+            <row>
+                Name
+                <textbox id="nameBox" hflex="1" constraint="no empty"/>
+            </row>
+            <row>
+                Gender:
+                <radiogroup id="genderRadio">
+                    <radio label="Male" value="male" iconSclass="z-icon-male" checked="true"/>
+                    <radio label="Female" value="female" iconSclass="z-icon-female"/>
+                </radiogroup>
+            </row>
+            <row>
+                Birthday
+                <datebox id="birthdayBox" hflex="1" constraint="no empty, no today, no future"/>
+            </row>
+            <row spans="2" align="center">
+                <hlayout>
+                    <checkbox id="acceptTermBox"/>
+                    Accept Term of Use
+                </hlayout>
+            </row>
+            <row spans="2" align="right">
+                <hlayout>
+                    <button id="submitButton" label="Submit" disabled="true"/>
+                </hlayout>
+            </row>
+        </rows>
+    </grid>
+</zk>

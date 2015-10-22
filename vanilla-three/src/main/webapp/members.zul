@@ -1,0 +1,23 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/WEB-INF/layout/page.zul"?>
+<zk>
+    <panel self="@define(content)" apply="com.sankholin.vanilla.three.ui.MembersController">
+        <panelchildren>
+            <listbox id="memberListbox" emptyMessage="No member found in the result">
+                <listhead>
+                    <listheader label="ID"/>
+                    <listheader label="Name"/>
+                    <listheader label="Gender"/>
+                    <listheader label="DOB"/>
+                </listhead>
+                <template name="model">
+                    <listitem>
+                        <listcell label="${each.id}"/>
+                        <listcell label="${each.name}"/>
+                        <listcell label="${each.gender}"/>
+                        <listcell label="${each.dob}"/>
+                    </listitem>
+                </template>
+            </listbox>
+        </panelchildren>
+    </panel>
+</zk>

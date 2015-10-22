@@ -1,0 +1,22 @@
+<grid hflex="1" vflex="1" sclass="sidebar">
+    <columns>
+        <column/>
+    </columns>
+    <auxhead>
+        <auxheader label="Menu"/>
+    </auxhead>
+    <rows>
+        <row>
+            <a href="/">Home</a>
+        </row>
+        <row>
+            <a href="members.zul">Members</a>
+        </row>
+        <row>
+            <a href="registration.zul">Registration</a>
+        </row>
+        <row>
+            <a href="zkin.jsp">Try ZK-in-JSP</a>
+        </row>
+    </rows>
+</grid>
