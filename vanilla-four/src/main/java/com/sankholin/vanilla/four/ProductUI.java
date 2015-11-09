@@ -66,7 +66,7 @@ public class ProductUI extends UI {
         Button homeBtn = new Button("Home");
         homeBtn.setPrimaryStyleName(ValoTheme.MENU_ITEM);
         homeBtn.setIcon(FontAwesome.HOME);
-        homeBtn.addClickListener(event -> getPage().setLocation("/"));
+        homeBtn.addClickListener(event -> getPage().setLocation("index.jsp"));
         menu.addComponent(homeBtn);
 
         Button productBtn = new Button("Product");
