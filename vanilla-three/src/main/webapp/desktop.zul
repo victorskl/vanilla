@@ -1,4 +1,4 @@
-<?page title="ZK Single Page MVVM Application" contentType="text/html;charset=UTF-8"?>
+<?page title="ZK MVVM Single-page Application" contentType="text/html;charset=UTF-8"?>
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="/WEB-INF/layout/single.zul"?>
 <zk>
 
@@ -11,7 +11,7 @@
                     <button href="/">Home</button>
                     <button onClick="winReg.doModal();">Add</button>
                     <hbox hflex="1" vflex="1" pack="end" align="center">
-                        <label value="ZK - Single Page, MVVM Application"/>
+                        <label value="ZK MVVM pattern - Single-page Application"/>
                     </hbox>
                 </hbox>
 

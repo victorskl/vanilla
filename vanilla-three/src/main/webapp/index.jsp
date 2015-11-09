@@ -10,6 +10,21 @@
         #container {
             margin: 50px 20% 0;
         }
+
+        #clip {
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: -1;
+        }
+
+        #clip:before {
+            content: "3";
+            font-size: 30.0em;
+            text-align: center;
+            display: block;
+            opacity: 0.2;
+        }
     </style>
 </head>
 <body>
@@ -33,7 +48,7 @@
         <li><a href="desktop.zul">ZK MVVM with ZUL Layout, Template Composition and Single-page Application</a></li>
         <li><a href="zkin.jsp">ZK in JSP</a></li>
     </ul>
-
 </div>
+<div id="clip"></div>
 </body>
 </html>
