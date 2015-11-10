@@ -8,6 +8,22 @@
 <f:view>
     <h:head>
         <title>Welcome to vanilla-one</title>
+        <style type="text/css">
+            #clip {
+                position: fixed;
+                left: 0;
+                top: 0;
+                z-index: -1;
+            }
+
+            #clip:before {
+                content: "1";
+                font-size: 30.0em;
+                text-align: center;
+                display: block;
+                opacity: 0.2;
+            }
+        </style>
     </h:head>
 
     <h:body style="font-family: 'Segoe UI', Verdana, Arial, sans-serif">
@@ -39,6 +55,7 @@
                 <li><h:outputLink value="restClient.html">restClient.html</h:outputLink></li>
             </ul>
         </div>
+        <div id="clip"></div>
     </h:body>
 </f:view>
 </html>

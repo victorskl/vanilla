@@ -16,6 +16,22 @@
     <script src="resources/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css"/>
 
+    <style type="text/css">
+        #clip {
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: -1;
+        }
+
+        #clip:before {
+            content: "2";
+            font-size: 30.0em;
+            text-align: center;
+            display: block;
+            opacity: 0.2;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -69,5 +85,6 @@
         <li><a href="space4/thycars">thycars</a></li>
     </ul>
 </div>
+<div id="clip"></div>
 </body>
 </html>
