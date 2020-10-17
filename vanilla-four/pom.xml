@@ -15,7 +15,7 @@
         <project.source.version>1.8</project.source.version>
         <project.target.version>1.8</project.target.version>
 
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <servlet.version>3.1.0</servlet.version>
         <jsp.version>2.3.1</jsp.version>
         <el.version>3.0.0</el.version>
