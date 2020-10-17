@@ -25,7 +25,7 @@
 
         <spring.version>4.2.2.RELEASE</spring.version>
         <validation-api.version>1.1.0.Final</validation-api.version>
-        <hibernate-validator.version>5.2.1.Final</hibernate-validator.version>
+        <hibernate-validator.version>5.3.6.Final</hibernate-validator.version>
 
         <productionMode>false</productionMode>
         <vaadin.version>7.5.8</vaadin.version>
