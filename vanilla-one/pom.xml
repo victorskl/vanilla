@@ -25,7 +25,7 @@
         <resteasy.version>3.0.13.Final</resteasy.version>
         <mojarra.version>2.2.8</mojarra.version>
 
-        <primefaces.version>5.2</primefaces.version>
+        <primefaces.version>6.0</primefaces.version>
         <primefaces.themes.version>1.0.10</primefaces.themes.version>
         <primefaces.ext.ver>3.2.0</primefaces.ext.ver>
 
