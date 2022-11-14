@@ -20,7 +20,7 @@
         <jstl.api.version>1.2.1</jstl.api.version>
         <jstl.version>1.2</jstl.version>
 
-        <spring.version>4.2.2.RELEASE</spring.version>
+        <spring.version>4.2.7.RELEASE</spring.version>
         <zk.version>8.0.0</zk.version>
         <zkjsp.version>2.6.0</zkjsp.version>
     </properties>
